@@ -44,45 +44,22 @@
     LC_TIME = "en_IN";
   };
 
-#   # Enable Display Manager
-#   services.greetd = {
-#     enable = true;
-#     settings = {
-#       default_session = {
-#         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
-#         user = "ram";
-#       };
-#     };
-#   };
-
    # wayland.windowManager.hyprland = {
    programs.hyprland.enable = true;
 
    environment.sessionVariables.NIXOS_OZONE_WL = "1";
    environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
-
- 
-#   services = {
-#     displayManager.sddm.enable = true;
-#     # desktopManager.gnome.enable = true;
-#     desktopManager.hyprland.enable = true;
-#     xserver = {
-#       enable = true;
-#       # videoDrivers = ["nvidia"];
-#       xkb = {
-#         layout = "us";
-#         variant = "";
-#       };
-#     };
-#   };
- 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
   
     # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    services.displayManager.sddm= {
+      enable = true;
+#       theme = "catppuccin-mocha";
+#       package = pkgs.kdePackages.sddm;
+    };
+    services.xserver.desktopManager.plasma5.enable = true;
   
    # Configure keymap in X11
    services.xserver.xkb = {
@@ -185,6 +162,13 @@
     stow
     greetd.tuigreet
     # zsh
+#     catppuccin-sddm.override {
+#       flavor = "mocha";
+#       font  = "Noto Sans";
+#       fontSize = "9";
+#       # background = "${./wallpaper.png}";
+#       loginBackground = true;
+#     }
     
   ];
 
