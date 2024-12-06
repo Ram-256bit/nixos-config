@@ -184,6 +184,13 @@
     
   ];
 
+  fonts.fontconfig.useEmbeddedBitmaps = true;
+  fonts.enableDefaultPackages = true;
+  fonts.packages = with pkgs; [
+    # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+    nerdfonts
+  ];
+
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.ohMyZsh.enable = true;
