@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
     ];
 
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -54,11 +56,12 @@
     services.xserver.enable = true;
   
     # Enable the GNOME Desktop Environment.
-    services.displayManager.sddm= {
-      enable = true;
-#       theme = "catppuccin-mocha";
-#       package = pkgs.kdePackages.sddm;
-    };
+
+     services.displayManager.sddm= {
+       enable = true;
+        theme = "catppuccin-mocha";
+        package = pkgs.kdePackages.sddm;
+     };
     services.xserver.desktopManager.plasma5.enable = true;
   
    # Configure keymap in X11
@@ -161,6 +164,14 @@
     alacritty
     stow
     greetd.tuigreet
+    # kdePackages.sddm
+
+#     = {
+#           enable = true;
+#     #       theme = "catppuccin-mocha";
+#     #       package = pkgs.kdePackages.sddm;
+#         };
+
     # zsh
 #     catppuccin-sddm.override {
 #       flavor = "mocha";
