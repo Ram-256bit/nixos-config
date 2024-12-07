@@ -46,8 +46,17 @@
     LC_TIME = "en_IN";
   };
 
+   programs.uwsm.enable = true;
+   programs.uwsm.waylandCompositors.hyprland = {
+     prettyName = "Hyprland";
+     comment = "Hyprland compositor managed by UWSM";
+     binPath = "/run/current-system/sw/bin/Hyprland";
+   };
+
+
    # wayland.windowManager.hyprland = {
    programs.hyprland.enable = true;
+   programs.hyprland.withUWSM = true;
 
    environment.sessionVariables.NIXOS_OZONE_WL = "1";
    environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
@@ -57,13 +66,14 @@
   
     # Enable the GNOME Desktop Environment.
 
-#      services.displayManager.sddm= {
-#        enable = true;
-#         theme = "catppuccin-mocha";
-#         package = pkgs.kdePackages.sddm;
-#      };
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+       services.displayManager.sddm= {
+         enable = true;
+          # theme = "catppuccin-mocha";
+          package = pkgs.kdePackages.sddm;
+       };
+    # pkgs.kdePackages.sddm.enable = true;
+    # services.displayManager.sddm.enable = true;
+    # services.xserver.desktopManager.gnome.enable = true;
   
    # Configure keymap in X11
    services.xserver.xkb = {
@@ -145,6 +155,7 @@
 	nextcloud-client 
 	qbittorrent
 	wlogout
+	nwg-look
     ];
 
   };
