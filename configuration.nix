@@ -118,6 +118,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+    	gparted
     	kitty
     	firefox
     	networkmanager_dmenu
@@ -164,6 +165,7 @@
 	qbittorrent
 	wlogout
 	nwg-look
+	# oh-my-zsh
     ];
 
   };
@@ -183,6 +185,7 @@
     nerdfonts
     alacritty
     stow
+    zsh
     # greetd.tuigreet
     # kdePackages.sddm
 
