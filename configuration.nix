@@ -14,9 +14,8 @@
   catppuccin.enable = true;
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,48 +45,25 @@
     LC_TIME = "en_IN";
   };
 
-#    programs.uwsm.enable = true;
-#    programs.uwsm.waylandCompositors.hyprland = {
-#      prettyName = "Hyprland";
-#      comment = "Hyprland compositor managed by UWSM";
-#      binPath = "/run/current-system/sw/bin/Hyprland";
-#    };
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  }
+  services.xserver.desktopManager.gnome.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  }
 
-   # wayland.windowManager.hyprland = {
-   # programs.hyprland.enable = true;
-   # programs.hyprland.withUWSM = true;
-
-   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-  
-    # Enable the GNOME Desktop Environment.
-
-#        services.displayManager.sddm= {
-#          enable = true;
-#           # theme = "catppuccin-mocha";
-#           package = pkgs.kdePackages.sddm;
-#        };
-    # pkgs.kdePackages.sddm.enable = true;
-     
-     programs.hyprland = {
-     	enable = true;
-	xwayland.enable = true;
-     };
-     services.xserver.displayManager.gdm = {
-     	enable = true;
-	wayland = true;
-      };
-     services.xserver.desktopManager.gnome.enable = true;
-  
-   # Configure keymap in X11
-   services.xserver.xkb = {
-     layout = "us";
-     variant = "";
-   };
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -115,10 +91,22 @@
   users.users.ram = {
     isNormalUser = true;
     description = "Ram";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
-    	gparted
+    	stow
+	tmux
+	alacritty
+	zoxide
+	fzf
+	eza
+	librewolf
+	gcc
+	nerdfonts
+	obsidian
+	starship
+      gparted
     	kitty
     	firefox
     	networkmanager_dmenu
@@ -165,57 +153,37 @@
 	qbittorrent
 	wlogout
 	nwg-look
-	# oh-my-zsh
-    ];
 
+    ];
   };
 
-  # # Install firefox.
-  # programs.firefox.enable = true;
+ # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+    git
+    keyd
+    yazi
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    yazi
-    nerdfonts
-    alacritty
-    stow
-    zsh
-    # greetd.tuigreet
-    # kdePackages.sddm
-
-#     = {
-#           enable = true;
-#     #       theme = "catppuccin-mocha";
-#     #       package = pkgs.kdePackages.sddm;
-#         };
-
-    # zsh
-#     catppuccin-sddm.override {
-#       flavor = "mocha";
-#       font  = "Noto Sans";
-#       fontSize = "9";
-#       # background = "${./wallpaper.png}";
-#       loginBackground = true;
-#     }
-    
-  ];
-
-  fonts.fontconfig.useEmbeddedBitmaps = true;
-  fonts.enableDefaultPackages = true;
-  fonts.packages = with pkgs; [
-    # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
-    nerdfonts
-  ];
+  # Keyd service
+  services.keyd.enable = true;
 
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
   programs.zsh.ohMyZsh.enable = true;
+
+  # Install firefox.
+  programs.firefox.enable = true;
+ 
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+  fonts.enableDefaultPackages = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -245,6 +213,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
 }
