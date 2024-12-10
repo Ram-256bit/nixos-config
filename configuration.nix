@@ -154,6 +154,7 @@
 	qbittorrent
 	wlogout
 	nwg-look
+  nil
 
     ];
   };
