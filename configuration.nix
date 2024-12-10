@@ -52,12 +52,12 @@
   services.xserver.displayManager.gdm = {
     enable = true;
     wayland = true;
-  }
+  };
   services.xserver.desktopManager.gnome.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-  }
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -97,6 +97,7 @@
     #  thunderbird
     	stow
 	tmux
+  brightnessctl
 	alacritty
 	zoxide
 	fzf
@@ -165,6 +166,7 @@
     git
     keyd
     yazi
+    killall
   ];
 
   # Allow unfree packages
