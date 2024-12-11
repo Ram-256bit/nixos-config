@@ -96,6 +96,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+    # zen-browser.packages."${system}".specific
     	stow
 	tmux
   brightnessctl
