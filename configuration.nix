@@ -6,10 +6,10 @@
 { pkgs, ... }: # removed 'config' to satisfy lsp, add it if required
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
@@ -95,81 +95,84 @@
     isNormalUser = true;
     description = "Ram";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
-    # zen-browser.packages."${system}".specific
-    	stow
-	linux-wifi-hotspot
-	tmux
-  brightnessctl
-	alacritty
-	zoxide
-	fzf
-	eza
-	librewolf
-	gcc
-	nerdfonts
-	obsidian
-	starship
+      #  thunderbird
+      # zen-browser.packages."${system}".specific
+      stow
+      linux-wifi-hotspot
+      tmux
+      brightnessctl
+      alacritty
+      zoxide
+      fzf
+      eza
+      librewolf
+      gcc
+      nerdfonts
+      obsidian
+      starship
       gparted
-    	kitty
-    	firefox
-    	networkmanager_dmenu
-    	librewolf
-    	tmux
-	mpv
-	libqalculate
-	fzf
-	zoxide
-	jq
-	poppler
-	libgcc
-	btop
-	eza
-	wev
-	gh
-	tealdeer
-    	trash-cli 
-	calibre 
-	google-chrome
-	bat 
-	ugrep 
-	# zsh 
-	python312Packages.jupyter
-	keepassxc 
-	swaybg 
-	swaylock 
-	mpv  
-	android-tools 
-	# hyprland 
-	wofi 
-	waybar 
-	pyprland 
-	font-awesome_4
-	swaylock  
-	copyq 
-	networkmanagerapplet 
-	grimblast 
-	hyprpolkitagent 
-	starship 
-	lazygit 
-	keyd 
-	nextcloud-client 
-	qbittorrent
-	wlogout
-	nwg-look
-  	nil
-	vscode
+      kitty
+      firefox
+      networkmanager_dmenu
+      librewolf
+      tmux
+      mpv
+      libqalculate
+      fzf
+      zoxide
+      jq
+      poppler
+      libgcc
+      btop
+      eza
+      wev
+      gh
+      tealdeer
+      trash-cli
+      calibre
+      google-chrome
+      bat
+      ugrep
+      # zsh
+      python312Packages.jupyter
+      keepassxc
+      swaybg
+      swaylock
+      mpv
+      android-tools
+      # hyprland
+      wofi
+      waybar
+      pyprland
+      font-awesome_4
+      swaylock
+      copyq
+      networkmanagerapplet
+      grimblast
+      hyprpolkitagent
+      starship
+      lazygit
+      keyd
+      nextcloud-client
+      qbittorrent
+      wlogout
+      nwg-look
+      nil
+      vscode
 
     ];
   };
 
- # List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  wget
     git
     keyd
     yazi
@@ -187,13 +190,11 @@
 
   # Install firefox.
   programs.firefox.enable = true;
- 
 
   fonts.packages = with pkgs; [
     nerdfonts
   ];
   fonts.enableDefaultPackages = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -222,7 +223,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
 }
