@@ -69,6 +69,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
