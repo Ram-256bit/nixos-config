@@ -3,7 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # { config, pkgs, ... }:
-{ pkgs, ... }: # removed 'config' to satisfy lsp, add it if required
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: # removed 'config' to satisfy lsp, add it if required
 
 {
   imports = [
@@ -13,6 +19,8 @@
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
+
+  # nixvim.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -170,14 +178,20 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    git
-    keyd
-    yazi
-    killall
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+      git
+      keyd
+      yazi
+      killall
+
+    ]
+    ++ [
+      inputs.nixvim.packages.${system}.default
+    ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

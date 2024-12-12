@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:Ram-256bit/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -16,7 +20,7 @@
       self,
       nixpkgs,
       catppuccin,
-      zen-browser,
+      nixvim,
       ...
     }@inputs:
     let
@@ -27,7 +31,7 @@
         nixos = lib.nixosSystem {
           system = "x86_64-linux";
 
-          # specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; }; # Pass inputs to configuration.nix
           modules = [
             ./configuration.nix
             catppuccin.nixosModules.catppuccin
@@ -35,5 +39,4 @@
         };
       };
     };
-
 }
