@@ -68,6 +68,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -98,6 +99,7 @@
     #  thunderbird
     # zen-browser.packages."${system}".specific
     	stow
+	linux-wifi-hotspot
 	tmux
   brightnessctl
 	alacritty
@@ -156,7 +158,8 @@
 	qbittorrent
 	wlogout
 	nwg-look
-  nil
+  	nil
+	vscode
 
     ];
   };
