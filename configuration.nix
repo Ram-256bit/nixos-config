@@ -172,6 +172,8 @@
       nwg-look
       nil
       vscode
+      tree
+      # mf
 
     ];
   };
