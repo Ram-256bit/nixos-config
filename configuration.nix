@@ -107,75 +107,81 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      #  thunderbird
-      # zen-browser.packages."${system}".specific
-      stow
-      linux-wifi-hotspot
-      tmux
-      brightnessctl
-      alacritty
-      zoxide
-      fzf
-      eza
-      librewolf
-      gcc
-      nerdfonts
-      obsidian
-      starship
-      gparted
-      kitty
-      firefox
-      networkmanager_dmenu
-      librewolf
-      tmux
-      mpv
-      libqalculate
-      fzf
-      zoxide
-      jq
-      poppler
-      libgcc
-      btop
-      eza
-      wev
-      gh
-      tealdeer
-      trash-cli
-      calibre
-      google-chrome
-      bat
-      ugrep
-      # zsh
-      python312Packages.jupyter
-      keepassxc
-      swaybg
-      swaylock
-      mpv
-      android-tools
-      # hyprland
-      wofi
-      waybar
-      pyprland
-      font-awesome_4
-      swaylock
-      copyq
-      networkmanagerapplet
-      grimblast
-      hyprpolkitagent
-      starship
-      lazygit
-      keyd
-      nextcloud-client
-      qbittorrent
-      wlogout
-      nwg-look
-      nil
-      vscode
-      tree
-      # mf
+    packages =
+      with pkgs;
+      [
+        #  thunderbird
+        # zen-browser.packages."${system}".specific
+        stow
+        linux-wifi-hotspot
+        tmux
+        brightnessctl
+        alacritty
+        zoxide
+        fzf
+        eza
+        librewolf
+        gcc
+        nerdfonts
+        obsidian
+        starship
+        gparted
+        kitty
+        firefox
+        networkmanager_dmenu
+        librewolf
+        tmux
+        mpv
+        libqalculate
+        fzf
+        zoxide
+        jq
+        poppler
+        libgcc
+        btop
+        eza
+        wev
+        gh
+        tealdeer
+        trash-cli
+        calibre
+        google-chrome
+        bat
+        ugrep
+        # zsh
+        python312Packages.jupyter
+        keepassxc
+        swaybg
+        swaylock
+        mpv
+        android-tools
+        # hyprland
+        wofi
+        waybar
+        pyprland
+        font-awesome_4
+        swaylock
+        copyq
+        networkmanagerapplet
+        grimblast
+        hyprpolkitagent
+        starship
+        lazygit
+        keyd
+        nextcloud-client
+        qbittorrent
+        wlogout
+        nwg-look
+        nil
+        vscode
+        tree
+        # mf
+        go
 
-    ];
+      ]
+      ++ [
+        inputs.zen-browser.packages."${system}".specific
+      ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -210,6 +216,8 @@
     nerdfonts
   ];
   fonts.enableDefaultPackages = true;
+
+  services.flatpak.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
