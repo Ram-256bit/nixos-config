@@ -176,6 +176,8 @@
         vscode
         tree
         # mf
+        telegram-desktop
+        libreoffice-qt6-fresh
         go
 
       ]
