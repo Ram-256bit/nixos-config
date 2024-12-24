@@ -68,6 +68,16 @@
     xwayland.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    xdgOpenUsePortal = false;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -116,7 +126,6 @@
         linux-wifi-hotspot
         tmux
         brightnessctl
-        alacritty
         zoxide
         fzf
         eza
@@ -175,10 +184,19 @@
         nil
         vscode
         tree
-        # mf
+        # fm
+        mullvad-browser
+        powertop
+        wl-clipboard
+        nushell
+        adwaita-icon-theme
+        libsForQt5.qt5.qtquickcontrols2
+        libsForQt5.qt5.qtgraphicaleffects
+        libsForQt5.qt5.qtsvg
         telegram-desktop
         libreoffice-qt6-fresh
         go
+        python3
 
       ]
       ++ [
@@ -196,6 +214,13 @@
       keyd
       yazi
       killall
+      alacritty
+      mako
+      qt5.qtwayland
+      qt6.qtwayland
+      libnotify
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
 
     ]
     ++ [
@@ -220,6 +245,32 @@
   fonts.enableDefaultPackages = true;
 
   services.flatpak.enable = true;
+
+  security.polkit.enable = true;
+
+  # services.tlp.enable = true;
+  services.power-profiles-daemon.enable = false; # Default is true, it conflicts with tlp
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      #       CPU_MIN_PERF_ON_AC = 0;
+      #       CPU_MAX_PERF_ON_AC = 100;
+      #       CPU_MIN_PERF_ON_BAT = 0;
+      #       CPU_MAX_PERF_ON_BAT = 20;
+
+      #       # Optional helps save long term battery health
+      #       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+      #       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
