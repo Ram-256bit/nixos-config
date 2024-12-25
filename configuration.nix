@@ -121,7 +121,6 @@
       with pkgs;
       [
         #  thunderbird
-        # zen-browser.packages."${system}".specific
         stow
         linux-wifi-hotspot
         tmux
@@ -200,7 +199,7 @@
 
       ]
       ++ [
-        inputs.zen-browser.packages."${system}".specific
+        inputs.zen-browser.packages."${system}".default
       ];
   };
 
