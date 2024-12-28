@@ -13,6 +13,13 @@
       url = "github:Ram-256bit/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      #inputs.nixpkgs.follows = "nixpkgs/nixos-unstable";
+    };
+    firefox-nightly = {
+      url = "github:nix-community/flake-firefox-nightly";
+    };
   };
 
   outputs =
@@ -21,6 +28,7 @@
       nixpkgs,
       catppuccin,
       nixvim,
+      ghostty,
       ...
     }@inputs:
     let

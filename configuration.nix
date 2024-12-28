@@ -184,6 +184,10 @@
         vscode
         tree
         # fm
+        mercurial
+        kando
+        ffmpeg
+        firefox-beta-bin
         mullvad-browser
         powertop
         wl-clipboard
@@ -200,6 +204,7 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
+        inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
   };
 
@@ -224,6 +229,7 @@
     ]
     ++ [
       inputs.nixvim.packages.${system}.default
+      inputs.ghostty.packages.x86_64-linux.default
     ];
 
   # Allow unfree packages
@@ -261,8 +267,8 @@
 
       #       CPU_MIN_PERF_ON_AC = 0;
       #       CPU_MAX_PERF_ON_AC = 100;
-      #       CPU_MIN_PERF_ON_BAT = 0;
-      #       CPU_MAX_PERF_ON_BAT = 20;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
 
       #       # Optional helps save long term battery health
       #       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
