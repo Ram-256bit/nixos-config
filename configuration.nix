@@ -184,6 +184,7 @@
         vscode
         tree
         # fm
+        cachix
         mercurial
         kando
         ffmpeg
