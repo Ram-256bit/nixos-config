@@ -17,8 +17,8 @@
     ./hardware-configuration.nix
   ];
 
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
+  #   catppuccin.flavor = "mocha";
+  #   catppuccin.enable = true;
 
   # nixvim.enable = true;
 
@@ -230,7 +230,7 @@
     ]
     ++ [
       inputs.nixvim.packages.${system}.default
-      inputs.ghostty.packages.x86_64-linux.default
+      inputs.ghostty.packages.${system}.default
     ];
 
   # Allow unfree packages

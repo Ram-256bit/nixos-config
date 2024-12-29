@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
-    catppuccin.url = "github:catppuccin/nix";
+    # catppuccin.url = "github:catppuccin/nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,7 +26,7 @@
     {
       self,
       nixpkgs,
-      catppuccin,
+      # catppuccin,
       nixvim,
       ghostty,
       ...
@@ -42,7 +42,15 @@
           specialArgs = { inherit inputs; }; # Pass inputs to configuration.nix
           modules = [
             ./configuration.nix
-            catppuccin.nixosModules.catppuccin
+            # catppuccin.nixosModules.catppuccin
+            {
+              nix.settings.extra-substituters = [
+                "https://ghostty.cachix.org"
+              ];
+              nix.settings.extra-trusted-public-keys = [
+                "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+              ];
+            }
           ];
         };
       };
