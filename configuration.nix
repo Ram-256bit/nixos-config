@@ -184,7 +184,10 @@
         vscode
         tree
         # fm
+        ventoy-full
         cachix
+        bottles
+        lshw
         mercurial
         kando
         ffmpeg
