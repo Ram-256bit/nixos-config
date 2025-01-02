@@ -93,6 +93,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -157,6 +158,8 @@
   services.printing.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID"; # set the runtime directory
+  programs.seahorse.enable = true; # enable the graphical frontend for managing
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -253,6 +256,7 @@
         vscode
         tree
         # fm
+        intel-gpu-tools
         ventoy-full
         cachix
         bottles
@@ -293,6 +297,7 @@
       killall
       alacritty
       mako
+      libsecret # Required for gnome keyring unlocking
       qt5.qtwayland
       qt6.qtwayland
       libnotify
