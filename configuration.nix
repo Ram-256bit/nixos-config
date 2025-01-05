@@ -40,33 +40,33 @@
   ];
   ###### Disable Nvidia dGPU completely
 
-  #   ###### Nvidia settings ######
-  #   ###### Ref: https://nixos.wiki/wiki/Nvidia ######
+  ###### Nvidia settings ######
+  ###### Ref: https://nixos.wiki/wiki/Nvidia ######
   #   hardware.nvidia.prime = {
   #     offload = {
-  #       enable = true;
-  #       enableOffloadCmd = true;
+  #       enable = false;
+  #       # enableOffloadCmd = true;
   #     };
   #     # Make sure to use the correct Bus ID values for your system!
   #     intelBusId = "PCI:0:2:0";
   #     nvidiaBusId = "PCI:1:0:0";
   #     # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
   #   };
-  #   services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
   #   hardware.nvidia = {
   #
   #     # Modesetting is required.
-  #     modesetting.enable = true;
+  #     #modesetting.enable = true;
   #
   #     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
   #     # Enable this if you have graphical corruption issues or application crashes after waking
   #     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
   #     # of just the bare essentials.
-  #     powerManagement.enable = false;
+  #     #powerManagement.enable = false;
   #
   #     # Fine-grained power management. Turns off GPU when not in use.
   #     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-  #     powerManagement.finegrained = false;
+  #     #powerManagement.finegrained = true;
   #
   #     # Use the NVidia open source kernel module (not to be confused with the
   #     # independent third-party "nouveau" open source driver).
@@ -256,6 +256,11 @@
         vscode
         tree
         # fm
+        pciutils
+        topgrade
+        fastfetch
+        opensnitch-ui
+        opensnitch
         intel-gpu-tools
         ventoy-full
         cachix
@@ -264,7 +269,7 @@
         mercurial
         kando
         ffmpeg
-        firefox-beta-bin
+        # firefox-beta-bin
         mullvad-browser
         powertop
         wl-clipboard
@@ -281,7 +286,7 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
+        # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
   };
 
