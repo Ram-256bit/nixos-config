@@ -93,7 +93,7 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  # boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -253,7 +253,7 @@
         wlogout
         nwg-look
         nil
-        vscode
+        # vscode
         tree
         # fm
         pciutils
@@ -264,7 +264,6 @@
         intel-gpu-tools
         ventoy-full
         cachix
-        bottles
         lshw
         mercurial
         kando
@@ -282,10 +281,12 @@
         libreoffice-qt6-fresh
         go
         python3
+        zed-editor
 
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
+        # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
   };
