@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
-    # nixpkgs-unstable = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
-    # zed.url = "zed-industries/zed";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,6 +31,7 @@
       nixvim,
       ghostty,
       # zed,
+      nixpkgs-unstable,
       ...
     }@inputs:
     let

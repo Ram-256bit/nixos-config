@@ -6,6 +6,7 @@
 {
   config,
   pkgs,
+  pkgsUnstable,
   inputs,
   lib,
   ...
@@ -16,6 +17,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
 
   ###### Disable Nvidia dGPU completely
   boot.extraModprobeConfig = ''
@@ -281,11 +287,12 @@
         libreoffice-qt6-fresh
         go
         python3
-        zed-editor
+        # zed-editor
 
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
+        pkgsUnstable.zed-editor
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
