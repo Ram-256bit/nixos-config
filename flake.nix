@@ -6,10 +6,10 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #     home-manager = {
+    #       url = "github:nix-community/home-manager";
+    #       inputs.nixpkgs.follows = "nixpkgs";
+    #     };
     nixvim = {
       url = "github:Ram-256bit/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,10 +18,10 @@
       url = "github:ghostty-org/ghostty";
       #inputs.nixpkgs.follows = "nixpkgs/nixos-unstable";
     };
-    firefox-nightly = {
-      url = "github:nix-community/flake-firefox-nightly";
-    };
-  };
+    #     firefox-nightly = {
+    #       url = "github:nix-community/flake-firefox-nightly";
+    #     };
+    #   };
 
   outputs =
     {
