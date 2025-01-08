@@ -266,14 +266,14 @@
         signal-desktop
         topgrade
         fastfetch
-        opensnitch-ui
-        opensnitch
+        # opensnitch-ui
+        # opensnitch
         intel-gpu-tools
         ventoy-full
         cachix
         lshw
         mercurial
-        kando
+        # kando
         ffmpeg
         # firefox-beta-bin
         mullvad-browser
