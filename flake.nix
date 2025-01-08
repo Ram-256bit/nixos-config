@@ -21,7 +21,7 @@
     #     firefox-nightly = {
     #       url = "github:nix-community/flake-firefox-nightly";
     #     };
-    #   };
+  };
 
   outputs =
     {
