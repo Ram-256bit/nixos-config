@@ -263,6 +263,7 @@
         tree
         # fm
         pciutils
+        signal-desktop
         topgrade
         fastfetch
         opensnitch-ui
