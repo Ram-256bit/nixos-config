@@ -23,28 +23,28 @@
     inherit (config.nixpkgs) config;
   };
 
-  ###### Disable Nvidia dGPU completely
-  boot.extraModprobeConfig = ''
-    blacklist nouveau
-    options nouveau modeset=0
-  '';
-  services.udev.extraRules = ''
-    # Remove NVIDIA USB xHCI Host Controller devices, if present
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
-    # Remove NVIDIA USB Type-C UCSI devices, if present
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
-    # Remove NVIDIA Audio devices, if present
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
-    # Remove NVIDIA VGA/3D controller devices
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-  '';
-  boot.blacklistedKernelModules = [
-    "nouveau"
-    "nvidia"
-    "nvidia_drm"
-    "nvidia_modeset"
-  ];
-  ###### Disable Nvidia dGPU completely
+  #  ###### Disable Nvidia dGPU completely
+  #  boot.extraModprobeConfig = ''
+  #    blacklist nouveau
+  #    options nouveau modeset=0
+  #  '';
+  #  services.udev.extraRules = ''
+  #    # Remove NVIDIA USB xHCI Host Controller devices, if present
+  #    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+  #    # Remove NVIDIA USB Type-C UCSI devices, if present
+  #    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+  #    # Remove NVIDIA Audio devices, if present
+  #    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+  #    # Remove NVIDIA VGA/3D controller devices
+  #    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+  #  '';
+  #  boot.blacklistedKernelModules = [
+  #    "nouveau"
+  #    "nvidia"
+  #    "nvidia_drm"
+  #    "nvidia_modeset"
+  #  ];
+  #  ###### Disable Nvidia dGPU completely
 
   ###### Nvidia settings ######
   ###### Ref: https://nixos.wiki/wiki/Nvidia ######
@@ -208,7 +208,7 @@
         eza
         librewolf
         gcc
-        nerdfonts
+        # nerdfonts
         obsidian
         starship
         gparted
@@ -262,6 +262,7 @@
         # vscode
         tree
         # fm
+        perf-tools
         pciutils
         signal-desktop
         topgrade
@@ -274,6 +275,7 @@
         lshw
         mercurial
         # kando
+        obs-studio
         ffmpeg
         # firefox-beta-bin
         mullvad-browser
@@ -293,7 +295,7 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        pkgsUnstable.zed-editor
+        #       pkgsUnstable.zed-editor
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
@@ -317,11 +319,12 @@
       libnotify
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
+      linuxKernel.packages.linux_6_6.perf
 
     ]
     ++ [
       inputs.nixvim.packages.${system}.default
-      inputs.ghostty.packages.${system}.default
+      #      inputs.ghostty.packages.${system}.default
     ];
 
   # Allow unfree packages
