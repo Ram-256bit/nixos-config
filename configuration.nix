@@ -262,6 +262,18 @@
         # vscode
         tree
         # fm
+	ripgrep
+	fd
+  viu
+chafa
+ueberzugpp
+unzip
+wget
+jdk
+cargo
+
+
+
         perf-tools
         pciutils
         signal-desktop
@@ -291,11 +303,13 @@
         go
         python3
         # zed-editor
+        vscode
+        nodejs_22
 
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        #       pkgsUnstable.zed-editor
+        pkgsUnstable.zed-editor
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
@@ -307,6 +321,7 @@
     with pkgs;
     [
       #  wget
+      neovim
       git
       keyd
       yazi
@@ -320,10 +335,12 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
       linuxKernel.packages.linux_6_6.perf
+      linuxKernel.packages.linux_6_6.cpupower
+      # auto-cpufreq
 
     ]
     ++ [
-      inputs.nixvim.packages.${system}.default
+      # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
 
@@ -351,26 +368,30 @@
   # services.tlp.enable = true;
   services.power-profiles-daemon.enable = false; # Default is true, it conflicts with tlp
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  services.cpupower-gui.enable = true;
 
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  services.auto-cpufreq.enable = true;
 
-      #       CPU_MIN_PERF_ON_AC = 0;
-      #       CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-
-      #       # Optional helps save long term battery health
-      #       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-      #       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
-
-    };
-  };
+  #   services.tlp = {
+  #     enable = true;
+  #     settings = {
+  #       CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #
+  #       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #
+  #       #       CPU_MIN_PERF_ON_AC = 0;
+  #       #       CPU_MAX_PERF_ON_AC = 100;
+  #       CPU_MIN_PERF_ON_BAT = 0;
+  #       CPU_MAX_PERF_ON_BAT = 20;
+  #
+  #       #       # Optional helps save long term battery health
+  #       #       START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+  #       #       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+  #
+  #     };
+  #   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
