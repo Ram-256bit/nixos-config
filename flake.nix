@@ -10,10 +10,10 @@
     #       url = "github:nix-community/home-manager";
     #       inputs.nixpkgs.follows = "nixpkgs";
     #     };
-    nixvim = {
-      url = "github:Ram-256bit/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#     nixvim = {
+#       url = "github:Ram-256bit/nixvim";
+#       inputs.nixpkgs.follows = "nixpkgs";
+#     };
     ghostty = {
       url = "github:ghostty-org/ghostty";
       #inputs.nixpkgs.follows = "nixpkgs/nixos-unstable";
@@ -28,7 +28,7 @@
       self,
       nixpkgs,
       # catppuccin,
-      nixvim,
+      # nixvim,
       ghostty,
       # zed,
       nixpkgs-unstable,
