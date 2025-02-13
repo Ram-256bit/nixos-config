@@ -262,17 +262,19 @@
         # vscode
         tree
         # fm
-	ripgrep
-	fd
-  viu
-chafa
-ueberzugpp
-unzip
-wget
-jdk
-cargo
+        ripgrep
+        fd
+        viu
+        chafa
+        ueberzugpp
+        unzip
+        wget
+        jdk
+        cargo
 
-
+        marksman
+        rust-analyzer
+        nixfmt-rfc-style
 
         perf-tools
         pciutils
@@ -304,7 +306,7 @@ cargo
         python3
         # zed-editor
         vscode
-        nodejs_22
+        nodejs_23
 
       ]
       ++ [
