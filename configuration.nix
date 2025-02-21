@@ -200,7 +200,6 @@
       [
         #  thunderbird
         stow
-        linux-wifi-hotspot
         tmux
         brightnessctl
         zoxide
@@ -262,6 +261,7 @@
         # vscode
         tree
         # fm
+        stylua
         ripgrep
         fd
         viu
@@ -300,18 +300,19 @@
         libsForQt5.qt5.qtquickcontrols2
         libsForQt5.qt5.qtgraphicaleffects
         libsForQt5.qt5.qtsvg
-        telegram-desktop
+        # telegram-desktop
         libreoffice-qt6-fresh
         go
         python3
         # zed-editor
         vscode
         nodejs_23
+        mongodb-compass
 
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        pkgsUnstable.zed-editor
+        # pkgsUnstable.zed-editor
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
@@ -338,6 +339,8 @@
       xdg-desktop-portal-wlr
       linuxKernel.packages.linux_6_6.perf
       linuxKernel.packages.linux_6_6.cpupower
+      linux-wifi-hotspot
+
       # auto-cpufreq
 
     ]
@@ -356,7 +359,7 @@
   programs.zsh.ohMyZsh.enable = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   fonts.packages = with pkgs; [
     nerdfonts
