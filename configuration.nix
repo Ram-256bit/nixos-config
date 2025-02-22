@@ -340,6 +340,7 @@
       linuxKernel.packages.linux_6_6.perf
       linuxKernel.packages.linux_6_6.cpupower
       linux-wifi-hotspot
+      ghostty
 
       # auto-cpufreq
 
