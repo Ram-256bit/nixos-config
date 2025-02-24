@@ -46,14 +46,14 @@
           modules = [
             ./configuration.nix
             # catppuccin.nixosModules.catppuccin
-            {
-              nix.settings.extra-substituters = [
-                "https://ghostty.cachix.org"
-              ];
-              nix.settings.extra-trusted-public-keys = [
-                "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-              ];
-            }
+            # {
+            #   nix.settings.extra-substituters = [
+            #     "https://ghostty.cachix.org"
+            #   ];
+            #   nix.settings.extra-trusted-public-keys = [
+            #     "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+            #   ];
+            # }
           ];
         };
       };
