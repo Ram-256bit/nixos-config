@@ -6,10 +6,10 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    #     home-manager = {
-    #       url = "github:nix-community/home-manager";
-    #       inputs.nixpkgs.follows = "nixpkgs";
-    #     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #     nixvim = {
     #       url = "github:Ram-256bit/nixvim";
     #       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +27,7 @@
     {
       self,
       nixpkgs,
+      home-manager,
       # catppuccin,
       # nixvim,
       # ghostty,
@@ -45,6 +46,15 @@
           specialArgs = { inherit inputs; }; # Pass inputs to configuration.nix
           modules = [
             ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              # home-manager.users.ram = import ./home.nix;
+
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
             # catppuccin.nixosModules.catppuccin
             # {
             #   nix.settings.extra-substituters = [
