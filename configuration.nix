@@ -300,7 +300,7 @@
         libsForQt5.qt5.qtquickcontrols2
         libsForQt5.qt5.qtgraphicaleffects
         libsForQt5.qt5.qtsvg
-        # telegram-desktop
+        telegram-desktop
         libreoffice-qt6-fresh
         go
         python3
