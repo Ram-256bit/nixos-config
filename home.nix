@@ -13,14 +13,17 @@
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-  };
-  #
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "adw-gtk3-dark";
+    iconTheme = {
+      name = "Papirus-Dark";
     };
   };
+  #
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     color-scheme = "prefer-dark";
+  #     gtk-theme = "adw-gtk3-dark";
+  #   };
+  # };
   #
   #   # This value determines the Home Manager release that your
   #   # configuration is compatible with. This helps avoid breakage
