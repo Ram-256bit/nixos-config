@@ -261,6 +261,7 @@
         # vscode
         tree
         # fm
+        qutebrowser
         stylua
         ripgrep
         fd
