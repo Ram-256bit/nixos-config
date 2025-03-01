@@ -7,7 +7,7 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #     nixvim = {
@@ -50,7 +50,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              # home-manager.users.ram = import ./home.nix;
+              home-manager.users.ram = import ./home.nix;
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
