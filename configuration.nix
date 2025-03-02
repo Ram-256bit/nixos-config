@@ -261,6 +261,12 @@
         # vscode
         tree
         # fm
+        # ani-cli
+        aria2
+        yt-dlp
+        ani-skip
+        gnupatch
+
         qutebrowser
         stylua
         ripgrep
