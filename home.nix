@@ -16,6 +16,21 @@
     iconTheme = {
       name = "Papirus-Dark";
     };
+
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
+    gtk3.extraConfig.gtk-cursor-theme-name = "Bibata-Modern-Classic";
+    gtk4.extraConfig.gtk-cursor-theme-name = "Bibata-Modern-Classic";
+  };
+
+  home.pointerCursor = {
+    # enable = true;
+    gtk.enable = true;
+    package = pkgs.bibata-cursors; # or any cursor package you prefer
+    name = "Bibata-Modern-Classic"; # the cursor theme name
+    # You can also set the size here, e.g., size = 24;
   };
   #
   # dconf.settings = {
