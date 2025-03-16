@@ -205,7 +205,7 @@
         zoxide
         fzf
         eza
-        librewolf
+        # librewolf
         gcc
         # nerdfonts
         obsidian
@@ -214,7 +214,7 @@
         kitty
         firefox
         networkmanager_dmenu
-        librewolf
+        # librewolf
         tmux
         mpv
         libqalculate
@@ -261,6 +261,7 @@
         # vscode
         tree
         # fm
+        signal-desktop
         # ani-cli
         aria2
         yt-dlp
@@ -320,6 +321,7 @@
       ++ [
         inputs.zen-browser.packages."${system}".default
         # pkgsUnstable.zed-editor
+        pkgsUnstable.postman
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
