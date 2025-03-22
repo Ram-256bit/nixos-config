@@ -234,7 +234,7 @@
         bat
         ugrep
         # zsh
-        python312Packages.jupyter
+        # python312Packages.jupyter
         keepassxc
         swaybg
         swaylock
@@ -256,11 +256,13 @@
         nextcloud-client
         qbittorrent
         wlogout
-        nwg-look
+        # nwg-look
         nil
         # vscode
         tree
         # fm
+        inkscape
+        appimage-run
         signal-desktop
         # ani-cli
         aria2
@@ -268,7 +270,6 @@
         ani-skip
         gnupatch
 
-        qutebrowser
         stylua
         ripgrep
         fd
@@ -295,7 +296,7 @@
         ventoy-full
         cachix
         lshw
-        mercurial
+        # mercurial
         # kando
         obs-studio
         ffmpeg
@@ -312,6 +313,7 @@
         libreoffice-qt6-fresh
         go
         python3
+        pipx
         # zed-editor
         vscode
         nodejs_23
@@ -321,7 +323,7 @@
       ++ [
         inputs.zen-browser.packages."${system}".default
         # pkgsUnstable.zed-editor
-        pkgsUnstable.postman
+        # pkgsUnstable.postman
         # inputs.zed.packages."${system}"
         # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
@@ -333,6 +335,8 @@
     with pkgs;
     [
       #  wget
+      qemu
+      quickemu
       neovim
       git
       keyd
@@ -359,6 +363,7 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
+  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -425,7 +430,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
