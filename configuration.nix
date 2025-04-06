@@ -194,6 +194,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "kvm"
+      "adbusers"
     ];
     packages =
       with pkgs;
@@ -239,7 +241,10 @@
         swaybg
         swaylock
         mpv
-        android-tools
+        # android-tools
+        # sdkmanager
+        # android-studio
+        # android-studio-tools
         # hyprland
         wofi
         waybar
@@ -261,6 +266,11 @@
         # vscode
         tree
         # fm
+        anydesk
+        akregator
+        qalculate-gtk
+        dig
+        clang
         inkscape
         appimage-run
         signal-desktop
@@ -335,6 +345,9 @@
     with pkgs;
     [
       #  wget
+      android-studio
+      flutterPackages-source.v3_26
+
       qemu
       quickemu
       neovim
@@ -363,6 +376,7 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
+  programs.adb.enable = true;
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
