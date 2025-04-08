@@ -332,6 +332,8 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
+        pkgsUnstable.hugo
+        dart-sass
         # pkgsUnstable.zed-editor
         # pkgsUnstable.postman
         # inputs.zed.packages."${system}"
@@ -367,6 +369,7 @@
       linuxKernel.packages.linux_6_6.cpupower
       linux-wifi-hotspot
       ghostty
+      wgcf
 
       # auto-cpufreq
 
@@ -376,6 +379,7 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
+  services.cloudflare-warp.enable = true;
   programs.adb.enable = true;
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages
