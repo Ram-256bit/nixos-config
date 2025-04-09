@@ -266,6 +266,8 @@
         # vscode
         tree
         # fm
+        librewolf
+        thunderbird-latest
         anydesk
         akregator
         qalculate-gtk
