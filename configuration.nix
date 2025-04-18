@@ -212,21 +212,16 @@
         # nerdfonts
         obsidian
         starship
-        gparted
-        kitty
+        # gparted
+        # kitty
         firefox
         networkmanager_dmenu
-        # librewolf
-        tmux
         mpv
         libqalculate
-        fzf
-        zoxide
         jq
         poppler
         libgcc
         btop
-        eza
         wev
         gh
         tealdeer
@@ -240,7 +235,6 @@
         keepassxc
         swaybg
         swaylock
-        mpv
         # android-tools
         # sdkmanager
         # android-studio
@@ -250,31 +244,34 @@
         waybar
         pyprland
         font-awesome_4
-        swaylock
         copyq
         networkmanagerapplet
         grimblast
         hyprpolkitagent
-        starship
         lazygit
         keyd
-        nextcloud-client
+        # nextcloud-client
         qbittorrent
         wlogout
         # nwg-look
         nil
+
         # vscode
         tree
         # fm
+        wineWowPackages.waylandFull
+        ruff
+        ruff-lsp
+        pyright
         librewolf
         thunderbird-latest
         anydesk
         akregator
-        qalculate-gtk
+        # qalculate-gtk
         dig
         clang
-        inkscape
-        appimage-run
+        # inkscape
+        # appimage-run
         signal-desktop
         # ani-cli
         aria2
@@ -299,7 +296,6 @@
 
         perf-tools
         pciutils
-        signal-desktop
         topgrade
         fastfetch
         # opensnitch-ui
@@ -310,7 +306,7 @@
         lshw
         # mercurial
         # kando
-        obs-studio
+        # obs-studio
         ffmpeg
         # firefox-beta-bin
         mullvad-browser
@@ -334,8 +330,8 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        pkgsUnstable.hugo
-        dart-sass
+        # pkgsUnstable.hugo
+        # dart-sass
         # pkgsUnstable.zed-editor
         # pkgsUnstable.postman
         # inputs.zed.packages."${system}"
@@ -352,8 +348,8 @@
       android-studio
       flutterPackages-source.v3_26
 
-      qemu
-      quickemu
+      # qemu
+      # quickemu
       neovim
       git
       keyd
@@ -370,8 +366,8 @@
       linuxKernel.packages.linux_6_6.perf
       linuxKernel.packages.linux_6_6.cpupower
       linux-wifi-hotspot
-      ghostty
-      wgcf
+      # ghostty
+      # wgcf
 
       # auto-cpufreq
 
@@ -381,9 +377,9 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
-  services.cloudflare-warp.enable = true;
+  # services.cloudflare-warp.enable = true;
   programs.adb.enable = true;
-  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
+  # systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
