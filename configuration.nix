@@ -259,6 +259,7 @@
         # vscode
         tree
         # fm
+        freefilesync
         wineWowPackages.waylandFull
         ruff
         ruff-lsp
@@ -330,7 +331,7 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        # pkgsUnstable.hugo
+        pkgsUnstable.hugo
         # dart-sass
         # pkgsUnstable.zed-editor
         # pkgsUnstable.postman
