@@ -259,6 +259,10 @@
         # vscode
         tree
         # fm
+
+        adwaita-qt
+        adwaita-qt6
+        papirus-icon-theme
         freefilesync
         wineWowPackages.waylandFull
         ruff
@@ -328,6 +332,13 @@
         nodejs_23
         mongodb-compass
 
+        #Neovim lsp and other dependencies
+        #
+        #
+
+        vtsls
+        lua-language-server
+
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
@@ -345,10 +356,12 @@
   environment.systemPackages =
     with pkgs;
     [
-      #  wget
-      android-studio
-      flutterPackages-source.v3_26
-
+      libsForQt5.qt5ct
+      libsForQt5.breeze-qt5
+      # wget
+      inter-nerdfont
+      # android-studio
+      # flutterPackages-source.v3_26
       # qemu
       # quickemu
       neovim
@@ -394,7 +407,13 @@
   # programs.firefox.enable = true;
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "DroidSansMono"
+        "JetBrainsMono"
+      ];
+    })
   ];
   fonts.enableDefaultPackages = true;
 
