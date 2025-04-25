@@ -32,6 +32,24 @@
     name = "Bibata-Modern-Classic"; # the cursor theme name
     # You can also set the size here, e.g., size = 24;
   };
+
+  # qt.enable = true;
+  # qt.style.name = "adwaita-dark";
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qt5ct"; # or "qt5ct" if you prefer using qt5ct
+    style.name = "breeze-dark"; # Replace with your preferred Qt style (e.g., "adwaita", "breeze", etc.)
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Adwaita-dark";
+      icon-theme = "Papirus-Dark";
+      cursor-theme = "Bibata-Modern-Classic";
+      color-scheme = "prefer-dark";
+    };
+  };
   #
   # dconf.settings = {
   #   "org/gnome/desktop/interface" = {
@@ -39,6 +57,14 @@
   #     gtk-theme = "adw-gtk3-dark";
   #   };
   # };
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    # QT_STYLE_OVERRIDE = "breeze";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    # XCURSOR_SIZE = "24"; # Optional size
+  };
+
   #
   #   # This value determines the Home Manager release that your
   #   # configuration is compatible with. This helps avoid breakage
