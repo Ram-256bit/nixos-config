@@ -259,7 +259,7 @@
         # vscode
         tree
         # fm
-
+        masterpdfeditor4
         adwaita-qt
         adwaita-qt6
         papirus-icon-theme
@@ -298,6 +298,7 @@
         marksman
         rust-analyzer
         nixfmt-rfc-style
+        vscode-langservers-extracted
 
         perf-tools
         pciutils
@@ -329,7 +330,8 @@
         pipx
         # zed-editor
         vscode
-        nodejs_23
+        # nodejs_23
+        nodejs_20
         mongodb-compass
 
         #Neovim lsp and other dependencies
@@ -343,6 +345,9 @@
       ++ [
         inputs.zen-browser.packages."${system}".default
         pkgsUnstable.hugo
+        pkgsUnstable.bruno
+        pkgsUnstable.proton-pass
+        # pkgsUnstable.bruno-cli
         # dart-sass
         # pkgsUnstable.zed-editor
         # pkgsUnstable.postman
@@ -356,6 +361,8 @@
   environment.systemPackages =
     with pkgs;
     [
+      gparted
+      distrobox
       libsForQt5.qt5ct
       libsForQt5.breeze-qt5
       # wget
@@ -377,8 +384,8 @@
       libnotify
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
-      linuxKernel.packages.linux_6_6.perf
-      linuxKernel.packages.linux_6_6.cpupower
+      linuxKernel.packages.linux_libre.perf
+      linuxKernel.packages.linux_libre.cpupower
       linux-wifi-hotspot
       # ghostty
       # wgcf
@@ -390,6 +397,13 @@
       # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
+  services.mongodb.enable = true;
+  services.mongodb.package = pkgs.mongodb-ce;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   # services.cloudflare-warp.enable = true;
   programs.adb.enable = true;
@@ -466,7 +480,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
