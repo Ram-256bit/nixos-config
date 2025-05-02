@@ -39,7 +39,7 @@
   qt = {
     enable = true;
     platformTheme.name = "qt5ct"; # or "qt5ct" if you prefer using qt5ct
-    style.name = "breeze-dark"; # Replace with your preferred Qt style (e.g., "adwaita", "breeze", etc.)
+    # style.name = "breeze-dark"; # Replace with your preferred Qt style (e.g., "adwaita", "breeze", etc.)
   };
 
   dconf.settings = {
