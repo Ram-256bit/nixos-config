@@ -350,6 +350,7 @@
         pkgsUnstable.bruno
         pkgsUnstable.proton-pass
         pkgsUnstable.bluetui
+
         # pkgsUnstable.bruno-cli
         # dart-sass
         # pkgsUnstable.zed-editor
