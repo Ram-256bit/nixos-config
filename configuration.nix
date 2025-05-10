@@ -328,6 +328,7 @@
         libreoffice-qt6-fresh
         go
         python3
+        poetry
         pipx
         # zed-editor
         vscode
