@@ -349,6 +349,7 @@
         pkgsUnstable.hugo
         pkgsUnstable.bruno
         pkgsUnstable.proton-pass
+        pkgsUnstable.bluetui
         # pkgsUnstable.bruno-cli
         # dart-sass
         # pkgsUnstable.zed-editor
@@ -399,6 +400,15 @@
       # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
+
+  services.postgresql.enable = true;
+
+  programs.kdeconnect.enable = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
+
   services.mongodb.enable = true;
   services.mongodb.package = pkgs.mongodb-ce;
 
