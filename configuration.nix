@@ -164,6 +164,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
   environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID"; # set the runtime directory
   programs.seahorse.enable = true; # enable the graphical frontend for managing
