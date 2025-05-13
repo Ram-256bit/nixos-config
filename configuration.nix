@@ -8,9 +8,9 @@
   pkgs,
   pkgsUnstable,
   inputs,
-  lib,
+  # removed 'config', 'lib' to satisfy lsp, add it if required
   ...
-}: # removed 'config' to satisfy lsp, add it if required
+}:
 
 {
   imports = [
