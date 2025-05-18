@@ -170,7 +170,8 @@
   programs.seahorse.enable = true; # enable the graphical frontend for managing
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -268,12 +269,11 @@
         freefilesync
         wineWowPackages.waylandFull
         ruff
-        ruff-lsp
         pyright
         librewolf
         thunderbird-latest
         anydesk
-        akregator
+        kdePackages.akregator
         # qalculate-gtk
         dig
         clang
@@ -309,7 +309,7 @@
         # opensnitch-ui
         # opensnitch
         intel-gpu-tools
-        ventoy-full
+        # ventoy-full # Known issue: Ventoy uses binary blobs which can't be trusted to be free of malware or compliant to their licenses. ref: https://github.com/NixOS/nixpkgs/issues/404663
         cachix
         lshw
         # mercurial
@@ -434,15 +434,12 @@
   # Install firefox.
   # programs.firefox.enable = true;
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "DroidSansMono"
-        "JetBrainsMono"
-      ];
-    })
+  fonts.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.droid-sans-mono
+    pkgs.nerd-fonts.jetbrains-mono
   ];
+
   fonts.enableDefaultPackages = true;
 
   services.flatpak.enable = true;
