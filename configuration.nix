@@ -262,6 +262,7 @@
         # vscode
         tree
         # fm
+        hyprlang
         masterpdfeditor4
         adwaita-qt
         adwaita-qt6
