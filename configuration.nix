@@ -397,12 +397,24 @@
       # wgcf
 
       # auto-cpufreq
+      libva
+      intel-media-driver # for newer Intel GPUs (UHD)
+      vaapiVdpau
+      libvdpau-va-gl
 
     ]
     ++ [
       # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel # fallback for older Intel chips
+    ];
+  };
 
   services.postgresql.enable = true;
 
