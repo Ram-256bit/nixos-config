@@ -408,7 +408,7 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
