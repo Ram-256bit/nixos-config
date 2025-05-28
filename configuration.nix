@@ -367,6 +367,7 @@
   environment.systemPackages =
     with pkgs;
     [
+      ghostty
       gparted
       distrobox
       libsForQt5.qt5ct
