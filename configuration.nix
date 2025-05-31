@@ -376,8 +376,8 @@
       inter-nerdfont
       # android-studio
       # flutterPackages-source.v3_26
-      # qemu
-      # quickemu
+      qemu
+      quickemu
       neovim
       git
       keyd
@@ -437,7 +437,7 @@
 
   # services.cloudflare-warp.enable = true;
   programs.adb.enable = true;
-  # systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
+  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
