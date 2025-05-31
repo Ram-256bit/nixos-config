@@ -262,6 +262,8 @@
         # vscode
         tree
         # fm
+
+        homebank
         hyprlang
         masterpdfeditor4
         adwaita-qt
