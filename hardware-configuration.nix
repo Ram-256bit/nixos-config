@@ -17,6 +17,7 @@
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "nvme"
+    "usbhid"
     "usb_storage"
     "sd_mod"
     "rtsx_pci_sdmmc"
@@ -26,9 +27,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2483056f-22f9-4e59-9fb2-62e51a6c6fa6";
+    device = "/dev/disk/by-uuid/e7ab4321-0393-4e59-b1a7-bfe5cb24f123";
     fsType = "ext4";
   };
+
+  boot.initrd.luks.devices."luks-fe0587bd-837c-4ee4-8ce0-aaf28a30554a".device =
+    "/dev/disk/by-uuid/fe0587bd-837c-4ee4-8ce0-aaf28a30554a";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2492-1F84";
