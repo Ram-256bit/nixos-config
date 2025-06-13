@@ -347,20 +347,11 @@
         vtsls
         lua-language-server
 
+        bruno
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
-        pkgsUnstable.hugo
-        pkgsUnstable.bruno
-        pkgsUnstable.proton-pass
-        pkgsUnstable.bluetui
 
-        # pkgsUnstable.bruno-cli
-        # dart-sass
-        # pkgsUnstable.zed-editor
-        # pkgsUnstable.postman
-        # inputs.zed.packages."${system}"
-        # inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin
       ];
   };
 
