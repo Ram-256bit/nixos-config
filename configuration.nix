@@ -384,8 +384,10 @@
       libnotify
       xdg-desktop-portal-gtk
       xdg-desktop-portal-wlr
-      linuxKernel.packages.linux_libre.perf
-      linuxKernel.packages.linux_libre.cpupower
+      # linuxKernel.packages.linux_libre.perf
+      # linuxKernel.packages.linux_libre.cpupower
+      linuxKernel.packages.linux_6_12.perf
+      linuxKernel.packages.linux_6_12.cpupower
       linux-wifi-hotspot
       # ghostty
       # wgcf
@@ -415,6 +417,8 @@
   #     nvidiaBusId = "PCI:1:0:0";
   #   };
   # };
+
+  boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.graphics = {
     enable = true;
