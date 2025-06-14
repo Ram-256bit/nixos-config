@@ -263,6 +263,7 @@
         tree
         # fm
 
+        pinta
         homebank
         hyprlang
         masterpdfeditor4
@@ -417,8 +418,6 @@
   #     nvidiaBusId = "PCI:1:0:0";
   #   };
   # };
-
-  boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.graphics = {
     enable = true;
