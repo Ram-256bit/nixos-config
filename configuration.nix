@@ -193,7 +193,7 @@
   users.users.ram = {
     isNormalUser = true;
     description = "Ram";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -428,6 +428,8 @@
       intel-vaapi-driver # for older Intel chips
     ];
   };
+
+  programs.fish.enable = true;
 
   services.postgresql.enable = true;
 
