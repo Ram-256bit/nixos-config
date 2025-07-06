@@ -199,6 +199,7 @@
       "wheel"
       "kvm"
       "adbusers"
+      "docker"
     ];
     packages =
       with pkgs;
@@ -398,12 +399,18 @@
       intel-media-driver # for newer Intel GPUs (UHD)
       vaapiVdpau
       libvdpau-va-gl
+      docker-compose
 
     ]
     ++ [
       # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 
   # services.xserver.videoDrivers = [
   #   "nvidia"
