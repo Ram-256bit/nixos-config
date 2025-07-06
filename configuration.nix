@@ -264,8 +264,10 @@
         tree
         # fm
 
-        pinta
-        homebank
+        swaynotificationcenter
+        postman
+        rofi-wayland
+        onlyoffice-desktopeditors
         hyprlang
         masterpdfeditor4
         adwaita-qt
