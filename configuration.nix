@@ -277,8 +277,6 @@
         wineWowPackages.waylandFull
         ruff
         pyright
-        librewolf
-        thunderbird-latest
         anydesk
         kdePackages.akregator
         # qalculate-gtk
@@ -327,13 +325,12 @@
         mullvad-browser
         powertop
         wl-clipboard
-        nushell
         adwaita-icon-theme
         libsForQt5.qt5.qtquickcontrols2
         libsForQt5.qt5.qtgraphicaleffects
         libsForQt5.qt5.qtsvg
         telegram-desktop
-        libreoffice-qt6-fresh
+        # libreoffice-qt6-fresh
         go
         python3
         poetry
