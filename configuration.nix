@@ -264,6 +264,7 @@
         tree
         # fm
 
+        scrcpy
         swaynotificationcenter
         postman
         rofi-wayland
