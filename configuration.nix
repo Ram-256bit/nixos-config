@@ -400,6 +400,7 @@
       vaapiVdpau
       libvdpau-va-gl
       docker-compose
+      clipse
 
     ]
     ++ [
