@@ -350,6 +350,7 @@
         lua-language-server
 
         bruno
+        poetry
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
