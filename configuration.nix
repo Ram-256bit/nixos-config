@@ -162,7 +162,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
@@ -408,6 +408,22 @@
       # inputs.nixvim.packages.${system}.default
       #      inputs.ghostty.packages.${system}.default
     ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+      # hplip
+      foo2zjs
+    ];
+  };
 
   services.mysql = {
     enable = true;
