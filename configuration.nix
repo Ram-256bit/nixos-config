@@ -134,11 +134,11 @@
   services.xserver.enable = false;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm = {
+  services.displayManager.gdm = {
     enable = true;
     wayland = true;
   };
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -267,7 +267,7 @@
         scrcpy
         swaynotificationcenter
         postman
-        rofi-wayland
+        rofi
         onlyoffice-desktopeditors
         hyprlang
         masterpdfeditor4
@@ -367,7 +367,8 @@
       gparted
       distrobox
       libsForQt5.qt5ct
-      libsForQt5.breeze-qt5
+      kdePackages.breeze
+      kdePackages.breeze.qt5
       # wget
       inter-nerdfont
       # android-studio
@@ -398,7 +399,7 @@
       # auto-cpufreq
       libva
       intel-media-driver # for newer Intel GPUs (UHD)
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
       docker-compose
       clipse
@@ -449,8 +450,7 @@
     extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
-      vaapiIntel # fallback for older Intel chips
-      intel-vaapi-driver # for older Intel chips
+      intel-vaapi-driver
     ];
   };
 
