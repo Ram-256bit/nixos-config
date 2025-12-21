@@ -390,7 +390,7 @@
       xdg-desktop-portal-wlr
       # linuxKernel.packages.linux_libre.perf
       # linuxKernel.packages.linux_libre.cpupower
-      linuxKernel.packages.linux_6_12.perf
+      perf
       linuxKernel.packages.linux_6_12.cpupower
       linux-wifi-hotspot
       # ghostty
