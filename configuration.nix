@@ -264,6 +264,9 @@
         tree
         # fm
 
+        # kdePackages.kdenlive
+        libheif
+
         scrcpy
         swaynotificationcenter
         postman
@@ -330,14 +333,15 @@
         libsForQt5.qt5.qtquickcontrols2
         libsForQt5.qt5.qtgraphicaleffects
         libsForQt5.qt5.qtsvg
-        telegram-desktop
+        # telegram-desktop
         # libreoffice-qt6-fresh
         go
-        python3
+        # python3
         poetry
         pipx
         # zed-editor
-        vscode
+        # vscode
+        vscode-fhs
         # nodejs_23
         nodejs_20
         mongodb-compass
@@ -403,6 +407,9 @@
       libvdpau-va-gl
       docker-compose
       clipse
+      # python310
+      python3
+      uv
 
     ]
     ++ [
@@ -454,6 +461,7 @@
     ];
   };
 
+  programs.obs-studio.enable = true;
   programs.fish.enable = true;
 
   services.postgresql.enable = true;
