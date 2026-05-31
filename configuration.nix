@@ -417,6 +417,20 @@
       #      inputs.ghostty.packages.${system}.default
     ];
 
+  # services.ollama = {
+  #   enable = true;
+  # };
+
+  #
+  # nix.settings = {
+  #   substituters = [
+  #     "https://cache.nixos-cuda.org"
+  #   ];
+  #   trusted-public-keys = [
+  #     "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+  #   ];
+  # };
+  #
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -483,8 +497,11 @@
   # services.cloudflare-warp.enable = true;
   programs.adb.enable = true;
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages and add cudaSupport
+  nixpkgs.config = {
+    allowUnfree = true;
+    # cudaSupport = true;
+  };
 
   # Keyd service
   services.keyd.enable = true;
