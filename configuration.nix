@@ -136,7 +136,6 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm = {
     enable = true;
-    wayland = true;
   };
   services.desktopManager.gnome.enable = true;
   programs.hyprland = {
@@ -343,7 +342,7 @@
         # vscode
         vscode-fhs
         # nodejs_23
-        nodejs_20
+        nodejs
         mongodb-compass
 
         #Neovim lsp and other dependencies
@@ -410,6 +409,7 @@
       # python310
       python3
       uv
+      android-tools
 
     ]
     ++ [
@@ -495,7 +495,6 @@
   };
 
   # services.cloudflare-warp.enable = true;
-  programs.adb.enable = true;
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
   # Allow unfree packages and add cudaSupport
   nixpkgs.config = {
