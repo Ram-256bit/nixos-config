@@ -277,7 +277,7 @@
         adwaita-qt6
         papirus-icon-theme
         freefilesync
-        wineWowPackages.waylandFull
+        wineWow64Packages.waylandFull
         ruff
         pyright
         anydesk
@@ -307,7 +307,7 @@
 
         marksman
         rust-analyzer
-        nixfmt-rfc-style
+        nixfmt
         vscode-langservers-extracted
 
         perf-tools
@@ -337,13 +337,12 @@
         go
         # python3
         poetry
-        pipx
         # zed-editor
         # vscode
         vscode-fhs
         # nodejs_23
         nodejs
-        mongodb-compass
+        # mongodb-compass
 
         #Neovim lsp and other dependencies
         #
@@ -408,6 +407,7 @@
       clipse
       # python310
       python3
+      # pipx
       uv
       android-tools
 
