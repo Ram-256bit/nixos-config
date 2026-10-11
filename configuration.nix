@@ -276,7 +276,6 @@
         adwaita-qt
         adwaita-qt6
         papirus-icon-theme
-        freefilesync
         wineWow64Packages.waylandFull
         ruff
         pyright
@@ -356,6 +355,7 @@
       ]
       ++ [
         inputs.zen-browser.packages."${system}".default
+        pkgsUnstable.freefilesync
 
       ];
   };
